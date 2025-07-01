@@ -9,14 +9,15 @@ app.use(cors());
 
 // Middleware to parse JSON
 app.use(express.json());
+//mongoose.connect('mongodb://127.0.0.1:27017/userdb'
+//  Connec to MongoDB mongoose.connect(process.env.mongodb+srv://ayishathsajidha:mongodb@cluster1.cfly4ai.mongodb.net/
 
-//  Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/userdb', {
+mongoose.connect('mongodb+srv://ayishathsajidha:mongodb@cluster1.cfly4ai.mongodb.net/room-booking?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log(" MongoDB connected"))
-.catch(err => console.error(" MongoDB connection error:", err));
+.then(() => console.log("MongoDB connected"))
+.catch(err => console.error("MongoDB connection error:", err));
 
 // Import User model
 const User = require('./models/user');
