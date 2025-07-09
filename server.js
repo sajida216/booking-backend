@@ -1,4 +1,3 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
@@ -13,7 +12,6 @@ app.use(express.json());
 
 mongoose.connect('mongodb+srv://ayishathsajidha:mongodb@cluster1.cfly4ai.mongodb.net/room-booking?retryWrites=true&w=majority', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
 })
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.error("MongoDB connection error:", err));
@@ -111,7 +109,7 @@ app.listen(PORT, () => {
 
 
 
-
+// useUnifiedTopology: true
 //mongoose.connect('mongodb://127.0.0.1:27017/userdb'
 //  Connec to MongoDB mongoose.connect(process.env.mongodb+srv://ayishathsajidha:mongodb@cluster1.cfly4ai.mongodb.net/
 // app.get('/addcart', async (req, res) => {

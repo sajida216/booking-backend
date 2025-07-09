@@ -1,15 +1,3 @@
-// models/Booking.js
-// const mongoose = require('mongoose');
-
-// const bookingSchema = new mongoose.Schema({
-//   hotelName: String,
-//   checkInDate: String,
-//   checkOutDate: String
-// });
-
-// module.exports = mongoose.model('Booking', bookingSchema);
-
-// models/Booking.js
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
@@ -20,4 +8,7 @@ const bookingSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Booking', bookingSchema);
+
+
+
 
