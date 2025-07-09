@@ -9,8 +9,7 @@ app.use(cors());
 
 // Middleware to parse JSON
 app.use(express.json());
-//mongoose.connect('mongodb://127.0.0.1:27017/userdb'
-//  Connec to MongoDB mongoose.connect(process.env.mongodb+srv://ayishathsajidha:mongodb@cluster1.cfly4ai.mongodb.net/
+
 
 mongoose.connect('mongodb+srv://ayishathsajidha:mongodb@cluster1.cfly4ai.mongodb.net/room-booking?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -22,6 +21,12 @@ mongoose.connect('mongodb+srv://ayishathsajidha:mongodb@cluster1.cfly4ai.mongodb
 // Import User model
 const User = require('./models/user');
 const Booking = require('./models/Booking');
+
+// Test route
+app.get('/', (req, res) => {
+  res.send('API is working!');
+});
+
 //  Register Route
 app.post('/register', async (req, res) => {
   const { name, email, password } = req.body;
@@ -86,15 +91,6 @@ app.post('/logout', (req, res) => {
   res.status(200).json({ message: 'Logged out successfully' });
 });
 
-// app.get('/get-cart-items/:userId', async (req, res) => {
-// try {
-//     const bookings = await Booking.find({ userId: req.params.userId });
-//     res.status(200).json(bookings);
-//   } catch (err) {
-//     res.status(500).json({ error: 'Error fetching bookings' });
-//   }
-// });
-
 // Assuming you're using MongoDB and Mongoose
 app.delete('/addcart/:id', async (req, res) => {
   try {
@@ -108,8 +104,16 @@ app.delete('/addcart/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to delete booking' });
   }
 });
+app.listen(PORT, () => {
+  console.log(` Server running at http://localhost:${PORT}`);
+});
 
 
+
+
+
+//mongoose.connect('mongodb://127.0.0.1:27017/userdb'
+//  Connec to MongoDB mongoose.connect(process.env.mongodb+srv://ayishathsajidha:mongodb@cluster1.cfly4ai.mongodb.net/
 // app.get('/addcart', async (req, res) => {
 //   try {
 //     const allBookings = await Booking.find();
@@ -118,14 +122,14 @@ app.delete('/addcart/:id', async (req, res) => {
 //     res.status(500).json({ error: 'Failed to fetch bookings' });
 //   }
 // });
-
-
-
-
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
+// app.get('/get-cart-items/:userId', async (req, res) => {
+// try {
+//     const bookings = await Booking.find({ userId: req.params.userId });
+//     res.status(200).json(bookings);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Error fetching bookings' });
+//   }
+// });
 
 // app.post('/bookings', async (req, res) => {
 //   const { hotelName, checkInDate, checkOutDate } = req.body;
